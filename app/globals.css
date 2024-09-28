@@ -9,7 +9,7 @@ body {
     background-attachment: fixed; /* This creates the parallax effect */
     background-size: auto; /* Adjusts the background image size */
     background-position: center; /* Center the image */
-    z-index: -1; /* Send background to the back */
+    z-index: -1; 
 }
 
 

@@ -40,6 +40,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 framer-motion
 three
-react-intersection-observer 
-@react-three/dei 
-@react-three/fiber     
+
+1. Fix transparency in Socials.  

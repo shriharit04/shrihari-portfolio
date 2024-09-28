@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {Inter} from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./Components/main/Navbar";
 
 
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden antialiased`} 
         // dark pirple bg
       >
+        <Navbar/>
         {children}
         
       </body>
