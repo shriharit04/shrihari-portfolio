@@ -12,7 +12,7 @@ const Navbar = () => {
           className="h-auto w-auto flex flex-row items-center"
         >
 
-          <span className="font-bold ml-[10px] hidden md:block text-gray-300">
+          <span className="font-bold ml-[10px] hidden md:block font-sans text-gray-300">
             Shrihari Thiyagarajan
           </span>
         </a>

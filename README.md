@@ -41,4 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 framer-motion
 three
 
-1. Fix transparency in Socials.  
+1. Fix transparency in Socials.
+2. Change Skill Logos
+3. On Hovering logo, show name, and maybe proficiency
+4. Add type of skill ( Frontend, Backend, Coding, framework, etc.)

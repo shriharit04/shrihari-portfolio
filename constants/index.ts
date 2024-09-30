@@ -106,7 +106,7 @@ export const Skill_data = [
   
   
   
-  export const Frontend_skill = [
+  export const Frontend_skills = [
     {
       skill_name: "Html 5",
       Image: "/html.png",
@@ -169,7 +169,7 @@ export const Skill_data = [
     },
   ];
   
-  export const Backend_skill = [
+  export const Backend_skills = [
     {
       skill_name: "Node js",
       Image: "/node-js.png",
@@ -220,7 +220,7 @@ export const Skill_data = [
     },
   ];
   
-  export const Full_stack = [
+  export const Full_stacks = [
     {
       skill_name: "React Native",
       Image: "/ReactNative .png",
@@ -251,7 +251,7 @@ export const Skill_data = [
   
   
   
-  export const Other_skill = [
+  export const Other_skills = [
     {
       skill_name: "Go",
       Image: "/go.png",
