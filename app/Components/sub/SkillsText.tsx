@@ -8,11 +8,11 @@ const SkillsText = () => {
     const [ref, inView] = useInView({ triggerOnce: true })
 
   return (
-    <div className='w-full h-auto flex flex-col items-center justify-center'>
+    <div className='w-auto h-full flex flex-col items-center justify-center pr-10 mr-[40px]'>
       <motion.div>
         <motion.h1 
         ref = {ref}
-        className=' font-mono font-extrabold text-center text-6xl mb-4   bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
+        className=' font-mono font-extrabold text-center text-6xl mb-4  bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={{

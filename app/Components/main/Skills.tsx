@@ -6,38 +6,39 @@ import SkillsText from '../sub/SkillsText'
 const Skills = () => {
   return (
     <section 
-    className='flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden py-20'
+    className='flex flex-row items-center justify-center gap-[30px] h-full relative overflow-hidden py-20'
     id = 'skills'
     style={{transform: 'scale(0.9)'}}
     >
         <SkillsText/>
-        <div className="flex flex-row justify-normal flex-wrap mt-4 gap-5 items-center">
+        <div className="group flex flex-col justify-normal flex-wrap mt-4 gap-5 items-center">
+            <h1 className='text-white hidden group-hover:block'>FrontEnd Skills</h1>
             {Frontend_skills.map((image,index) => (
-                <SkillDataProvider key={index} src={image.Image} width={image.width} index={index} height={image.height}/>
+                <SkillDataProvider key={index} src={image.Image} width={image.width} index={index} height={image.height} name={image.skill_name}/>
             ))}
-        </div>
+        </div>  
 
-        <div className="flex flex-row justify-normal flex-wrap mt-4 gap-5 items-center">
+        <div className="flex flex-col justify-normal flex-wrap mt-4 gap-5 items-center">
             {Backend_skills.map((image,index) => (
-                <SkillDataProvider key={index} src={image.Image} width={image.width} index={index} height={image.height}/>
+                <SkillDataProvider key={index} src={image.Image} width={image.width} index={index} height={image.height} name={image.skill_name}/>
             ))}
         </div>
 
-        <div className="flex flex-row justify-normal flex-wrap mt-4 gap-5 items-center">
+        <div className="flex flex-col justify-normal flex-wrap mt-4 gap-5 items-center">
             {Full_stacks.map((image,index) => (
-                <SkillDataProvider key={index} src={image.Image} width={image.width} index={index} height={image.height}/>
+                <SkillDataProvider key={index} src={image.Image} width={image.width} index={index} height={image.height} name={image.skill_name}/>
             ))}
         </div>
 
-        <div className="flex flex-row justify-normal flex-wrap mt-4 gap-5 items-center">
+        <div className="flex flex-col justify-normal flex-wrap mt-4 gap-5 items-center">
             {Other_skills.map((image,index) => (
                 <SkillDataProvider key={index} src={image.Image} width={image.width} index={index} height={image.height}/>
             ))}
         </div>
 
 
-        <div className="w-full h-full absolute">
-            <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
+        <div className="w-full h-full absolute pointer-events-none">
+            <div className="w-full h-full z-[-15] opacity-30 absolute flex items-center justify-center bg-cover">
                 <video
                 className='w-full h-auto'
                 preload='false'

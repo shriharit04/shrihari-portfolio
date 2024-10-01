@@ -39,9 +39,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # Notes
 
 framer-motion
-three
+
 
 1. Fix transparency in Socials.
 2. Change Skill Logos
 3. On Hovering logo, show name, and maybe proficiency
 4. Add type of skill ( Frontend, Backend, Coding, framework, etc.)
+5. Skills not mobile ready
+6. Fix Projects , Make it easy to modify
+    1. Add Hover options to src code and o/p
+7. Change Learn More to See Resume, and link G resume to it
+8. Add footer,
+9. Contact form
