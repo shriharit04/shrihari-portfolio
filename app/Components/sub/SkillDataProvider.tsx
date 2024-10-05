@@ -37,15 +37,16 @@ const SkillDataProvider = ({ name, src, width, height, index ,isHovered}: Props)
             variants={imageVariants}
             animate={inView ? "visible" : "hidden"}
             custom={index}
-            transition={{ delay: index * animationDelay }}
+            transition={{ delay:  index * animationDelay }}
             className='flex md:flex-col items-center justify-start gap-[20px] w-[100px]' // Align items horizontally with a gap
-            layout
+            layout={"position"}
         >
             <motion.div 
                 className='flex-shrink-0' 
                 whileHover={{ scale: 1.1 }} // Expand logo on hover
                 transition={{ type: 'spring', stiffness: 300 }}
-                layout
+                layout={"position"}
+
             >
                 <Image
                     src={src}

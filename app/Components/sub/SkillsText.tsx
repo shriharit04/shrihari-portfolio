@@ -8,7 +8,7 @@ const SkillsText = () => {
     const [ref, inView] = useInView({ triggerOnce: true })
   
   return (
-    <div className='w-auto h-full flex flex-col items-center justify-center pr-10 mr-[40px] text-center'>
+    <div className='w-auto h-full flex flex-col items-center justify-center  text-center'>
       <motion.div>
         <motion.h1 
         ref = {ref}
