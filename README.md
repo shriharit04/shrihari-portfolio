@@ -50,4 +50,5 @@ framer-motion
     1. Add Hover options to src code and o/p
 7. Change Learn More to See Resume, and link G resume to it
 8. Add footer,
-9. Contact form
+9. Add Education
+10. Contact form
