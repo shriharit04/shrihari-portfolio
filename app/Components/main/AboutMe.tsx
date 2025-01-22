@@ -1,10 +1,9 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { FaUser, FaGraduationCap, FaGamepad, FaCode } from 'react-icons/fa'
 import Image from "next/image"
-import { useRef } from 'react'
-import {sections} from '@/constants/about'
+import { sections } from '@/constants/about'
 
 const icons = {
   about_me: <FaUser size={20} />,
@@ -14,9 +13,21 @@ const icons = {
 }
 
 const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+      duration: 0.5
+    }
+  }
+}
+
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5 }
   }
@@ -36,31 +47,25 @@ const contentVariants = {
   }
 }
 
-interface CompProps {
-  className? : string
-}
-
-const AboutMe = ({className}: CompProps) => {
+const AboutMe = ({className}: {className?: string}) => {
   const [activeSection, setActiveSection] = useState('about_me')
-  const ref = useRef(null)
-  const inView = useInView(ref)
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { once: true })
 
-  const renderContent = (section : string) => { //to add more, add info to  about.ts, add case here
+  const renderContent = (section: string) => {
     switch(section) {
       case 'about_me':
         return (
           <div className="text-gray-300">
             {sections.about_me.split('\n').map((paragraph, index) => (
-              paragraph.trim() && ( //avoid extra newlines
-                <p key={index} className="mb-4 text-justify ">
+              paragraph.trim() && (
+                <p key={index} className="mb-4 text-justify">
                   {paragraph}
                 </p>
               )
             ))}
           </div>
         );
-
-      
       case 'education':
         return (
           <div className="space-y-4 overflow-y-auto max-h-[400px] pr-2">
@@ -72,8 +77,7 @@ const AboutMe = ({className}: CompProps) => {
               </div>
             ))}
           </div>
-        )
-      
+        );
       case 'hobbies':
         return (
           <div className="flex flex-wrap gap-3">
@@ -83,8 +87,7 @@ const AboutMe = ({className}: CompProps) => {
               </span>
             ))}
           </div>
-        )
-      
+        );
       case 'domains':
         return (
           <div className="space-y-6 flex flex-col gap-1 justify-center">
@@ -100,43 +103,34 @@ const AboutMe = ({className}: CompProps) => {
               </div>
             ))}
           </div>
-        )
-      
+        );
       default:
-        return null
+        return null;
     }
   }
 
   return (
-    <>
-      {/* Header */}
-      <div className= {'w-full h-auto flex flex-col items-center justify-center mb-4 ' + className}>
-        <motion.div>
-          <motion.h1
-            ref={ref}
-            className='font-mono font-extrabold text-center text-6xl pb-2 bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            About Me
-          </motion.h1>
-        </motion.div>
-      </div>
+    <motion.div 
+      ref={containerRef}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className={'w-full h-auto ' + className}
+    >
+      <motion.div className="w-[90%] md:w-[80%] mx-auto p-4 md:p-8 md:pt-2 text-white min-h-[500px]">
+        <motion.h1
+          variants={itemVariants}
+          className='font-mono font-extrabold text-center text-6xl pb-16 bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
+        >
+          About Me
+        </motion.h1>
 
-      <motion.div 
-        className="w-[90%] md:w-[80%] mx-auto p-4 md:p-6 md:pt-2 text-white min-h-[500px]"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-1/3 flex justify-center items-center">
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full p-1 bg-gradient-to-r from-purple-500 to-cyan-500 items-center">
+          <motion.div 
+            variants={itemVariants}
+            className="md:w-1/3 flex justify-center items-center"
+          >
+            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full p-1 bg-gradient-to-r from-purple-500 to-cyan-500">
               <Image
                 src="/about_me_profile.jpg"
                 className="rounded-full w-full h-full object-cover"
@@ -145,13 +139,20 @@ const AboutMe = ({className}: CompProps) => {
                 alt="Profile"
               />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="md:w-2/3 w-full">
-            <div className="flex justify-between md:justify-center flex-wrap gap-4 mb-6">
+          <motion.div 
+            variants={itemVariants}
+            className="md:w-2/3 w-full"
+          >
+            <motion.div 
+              variants={itemVariants}
+              className="flex justify-between md:justify-center flex-wrap gap-4 mb-6"
+            >
               {Object.keys(sections).map((section) => (
-                <button
+                <motion.button
                   key={section}
+                  variants={itemVariants}
                   onClick={() => setActiveSection(section)}
                   className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
                     activeSection === section
@@ -163,9 +164,9 @@ const AboutMe = ({className}: CompProps) => {
                   <span className="hidden md:block capitalize">
                     {section.replace('_', ' ')}
                   </span>
-                </button>
+                </motion.button>
               ))}
-            </div>
+            </motion.div>
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -181,10 +182,10 @@ const AboutMe = ({className}: CompProps) => {
                 </div>
               </motion.div>
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
-    </>
+    </motion.div>
   )
 }
 
