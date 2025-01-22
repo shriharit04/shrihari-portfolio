@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -24,8 +24,8 @@ const SkillDataProvider = ({ name, src, width, height, index ,isHovered}: Props)
     };
 
     const textVariants = {
-        hidden: { opacity: 0, x: -20 },  // Move text left initially
-        visible: { opacity: 1, x: 0 },    // Move text to its original position
+        hidden: { opacity: 0, y: -20 },  // Move text left initially
+        visible: { opacity: 1, y: 0 },    // Move text to its original position
     };
 
     const animationDelay = 0.1;
@@ -37,7 +37,7 @@ const SkillDataProvider = ({ name, src, width, height, index ,isHovered}: Props)
             variants={imageVariants}
             animate={inView ? "visible" : "hidden"}
             custom={index}
-            transition={{ delay:  index * animationDelay }}
+            transition={{ delay:  index * animationDelay + 0.4 }}
             className='flex md:flex-col items-center justify-start gap-[20px] w-[100px]' // Align items horizontally with a gap
             layout={"position"}
         >
@@ -60,7 +60,7 @@ const SkillDataProvider = ({ name, src, width, height, index ,isHovered}: Props)
                 initial="hidden"
                 animate={isHovered ? "visible" : "hidden"}
                 variants={textVariants}
-                transition={{ delay: index * animationDelay}}
+                transition={{ delay: index * animationDelay + 0.4}}
             >
                 {name}
             </motion.p>

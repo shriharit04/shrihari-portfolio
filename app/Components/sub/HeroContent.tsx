@@ -1,5 +1,4 @@
-"use client";
-
+'use client'
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -51,8 +50,10 @@ const HeroContent = () => {
         <motion.a
           variants={slideInFromLeft(1)}
           className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+          href="https://docs.google.com/document/d/10DSxqp4wT-WKcrqZblwBp-hPgexSmy4wB93o8N_s2iM/"
+          target = "_blank"
         >
-          Learn More!
+          Check My Resume
         </motion.a>
       </div>
 

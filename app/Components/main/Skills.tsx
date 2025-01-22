@@ -1,14 +1,17 @@
-"use client";
+'use client';
 
 import { languages, frameWorks, database_skills, other } from '@/constants/skills'; // Import the correct skill arrays
 import React from 'react';
 import SkillsText from '../sub/SkillsText';
 import SkillGroup from '../sub/SkillGroup'; // Import the SkillGroup component
 
-const Skills = () => {
+interface CompProps{
+    className? : string;
+}
+const Skills = ({className} : CompProps) => {
     return (
         <section 
-            className='flex flex-col items-center justify-center gap-6 md:gap-8 h-full relative py-20 md:scale-100' 
+            className= {className + 'flex flex-col items-center justify-center gap-6 md:gap-8 h-full relative py-20 md:scale-100' }
             id='skills'
             style={{ transform: 'scale(0.8)' }}
         >
@@ -18,18 +21,18 @@ const Skills = () => {
             </div>
 
             {/* Skills Section */}
-            <div className="md:flex flex-wrap  gap-14 md:flex-col w-full justify-center grid grid-cols-2  "> {/* Use flex-wrap for mobile */}
+            <div className="md:flex flex-wrap  gap-14 md:flex-col w-full justify-center items-center grid grid-cols-2  "> {/* Use flex-wrap for mobile */}
                 {/* Language Skills */}
-                <SkillGroup title="Language Skills" skills={languages} />
+                <SkillGroup title="Languages" skills={languages} />
                 
                 {/* Framework Skills */}
-                <SkillGroup title="Framework Skills" skills={frameWorks} />
+                <SkillGroup title="Frameworks" skills={frameWorks} />
 
                 {/* Other Skills */}
                 <SkillGroup title="Other Skills" skills={other} />
 
                 {/* Full Stack Skills */}
-                <SkillGroup title="Full Stack Skills" skills={database_skills} />
+                <SkillGroup title="Databases" skills={database_skills} />
             </div>
 
             {/* Background Video */}

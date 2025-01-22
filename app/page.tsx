@@ -1,4 +1,7 @@
+import AboutMe from "./Components/main/AboutMe";
+import ContactMe from "./Components/main/ContactMe";
 import Hero from "./Components/main/Hero";
+import KnowMore from "./Components/main/KnowMore";
 import Projects from "./Components/main/Projects";
 import Skills from "./Components/main/Skills";
 
@@ -6,10 +9,13 @@ export default function Home() {
   return(
     <main className="h-full w-full">
 
-      <div className="flex flex-col  gap-20">
-        <Hero/>
-        <Skills/>
-        <Projects/>
+      <div className="flex flex-col gap-20 h-screen overflow-y-scroll scroll-smooth snap-y snap-proximity">
+        <Hero className="snap-start h-screen"/>
+        <AboutMe  className="pt-32 snap-start h-screen"/>
+        <Skills className="pt-32 snap-start h-screen"/>
+        <Projects className="pt-32 snap-start"/>
+        <KnowMore className="pt-32 snap-start h-screen"/>
+        <ContactMe className="pt-32 snap-start h-screen"/>
       </div>
     </main>
   )

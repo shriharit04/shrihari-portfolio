@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -14,7 +14,7 @@ const SkillGroup: React.FC<SkillGroupProps> = ({ title, skills }) => {
 
     return (
         <div 
-            className={`group flex flex-col md:flex-row md:flex-wrap justify-center gap-6 items-center relative ${isHovered ? 'bg-black/30 border-black/30 rounded-2xl' : ''}`}
+            className={`group flex flex-col md:flex-row md:flex-wrap justify-center gap-6 items-center relative w-fit p-4 ${isHovered ? 'bg-black/30 border-black/30 rounded-2xl' : ''}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
