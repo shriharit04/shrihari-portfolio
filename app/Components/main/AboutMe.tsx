@@ -121,10 +121,10 @@ const AboutMe = ({className}: {className?: string}) => {
       animate={isInView ? "visible" : "hidden"}
       className={'w-full h-auto ' + className}
     >
-      <motion.div className="w-[90%] md:w-[80%] mx-auto p-4 md:p-8 md:pt-2 text-white min-h-[500px]">
+      <motion.div className="w-[90%] md:w-[80%] mx-auto pb-4 md:pb-8 md:pt-2 text-white min-h-[500px]">
         <motion.h1
           variants={itemVariants}
-          className='font-mono font-extrabold text-center text-6xl pb- bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
+          className='font-mono font-extrabold text-center text-6xl mb-16 bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
         >
           About Me
         </motion.h1>

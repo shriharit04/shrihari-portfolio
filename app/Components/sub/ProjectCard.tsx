@@ -136,19 +136,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, amount: 0.2 }}
-        className="relative h-[410px] md:h-[480px] m-4 md:m-7 cursor-pointer"
+        className="relative h-[410px] md:h-[480px] m-4 md:m-7 mx-0 cursor-pointer "
         onClick={() => setIsModalOpen(true)}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
       >
         <motion.div
-          className="relative overflow-hidden rounded-lg shadow-lg w-full h-full bg-transparent"
+          className="relative overflow-hidden rounded-lg shadow-lg w-full h-full bg-transparent border border-slate-700/30 dark:border-slate-300/20"
           style={{
-            border: "2px solid transparent",
             backgroundClip: "padding-box, border-box",
             backgroundOrigin: "border-box",
-            backgroundImage: `linear-gradient(to bottom, rgba(34, 34, 34, 0.9), rgba(17, 24, 39, 0.9)),
-              linear-gradient(45deg, #000000, #9333EA, #06B6D4)`,
           }}
         >
           <div className="relative w-full h-1/2 rounded-t-lg overflow-hidden">

@@ -40,10 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 framer-motion
 
-- Fix AboutMe .tsx errors
-- Create More Coming Soon 
-
 1. Fix transparency in Socials.
+- Create More Coming Soon 
 3. Add Project Images
-4. Make Snap animations mobile-compatible
+4. Make Snap animations mobile-compatible r
 
