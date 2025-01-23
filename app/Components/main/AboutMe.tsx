@@ -5,12 +5,16 @@ import { FaUser, FaGraduationCap, FaGamepad, FaCode } from 'react-icons/fa'
 import Image from "next/image"
 import { sections } from '@/constants/about'
 
-const icons = {
+interface Icons {
+  [key: string]: React.ReactNode; 
+}
+
+const icons: Icons = {
   about_me: <FaUser size={20} />,
   education: <FaGraduationCap size={20} />,
-  hobbies: <FaGamepad size={20} />,
+  // hobbies: <FaGamepad size={20} />, 
   domains: <FaCode size={20} />,
-}
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -78,16 +82,16 @@ const AboutMe = ({className}: {className?: string}) => {
             ))}
           </div>
         );
-      case 'hobbies':
-        return (
-          <div className="flex flex-wrap gap-3">
-            {sections.hobbies.map((hobby, index) => (
-              <span key={index} className="px-4 py-2 bg-gray-700/30 rounded-full text-gray-300">
-                {hobby}
-              </span>
-            ))}
-          </div>
-        );
+      // case 'hobbies':
+      //   return (
+      //     <div className="flex flex-wrap gap-3">
+      //       {sections.hobbies.map((hobby, index) => (
+      //         <span key={index} className="px-4 py-2 bg-gray-700/30 rounded-full text-gray-300">
+      //           {hobby}
+      //         </span>
+      //       ))}
+      //     </div>
+      //   );
       case 'domains':
         return (
           <div className="space-y-6 flex flex-col gap-1 justify-center">
@@ -120,7 +124,7 @@ const AboutMe = ({className}: {className?: string}) => {
       <motion.div className="w-[90%] md:w-[80%] mx-auto p-4 md:p-8 md:pt-2 text-white min-h-[500px]">
         <motion.h1
           variants={itemVariants}
-          className='font-mono font-extrabold text-center text-6xl pb-16 bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
+          className='font-mono font-extrabold text-center text-6xl pb- bg-clip-text text-transparent bg-gradient-to-tr from-purple-500 to-cyan-500'
         >
           About Me
         </motion.h1>

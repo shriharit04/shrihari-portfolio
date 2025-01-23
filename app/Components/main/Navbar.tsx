@@ -31,7 +31,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-5">
+        <div className="flex-row gap-5 hidden md:flex">
           {Socials.map((social) => (
             <Image
               className="bg-transparent" // Tailwind CSS class for transparency
