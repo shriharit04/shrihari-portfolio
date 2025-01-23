@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
             This site is ever-evolving, just like my journey. Stay tuned as I continue to update and add more of my work and creativity over time.
           </p>
           <p className="text-base md:text-xl font-mono">
-            Got something to say? I'd love to hear from you! Feel free to reach out via email or connect with me on social media.
+            Got something to say? I wouldd love to hear from you! Feel free to reach out via email or connect with me on social media.
           </p>
         </div>
 
