@@ -1,10 +1,8 @@
 import AboutMe from "./Components/main/AboutMe";
-import ComingSoon from "./Components/main/ComingSoon";
-import ContactMe from "./Components/main/ContactMe";
 import Hero from "./Components/main/Hero";
 import Projects from "./Components/main/Projects";
 import Skills from "./Components/main/Skills";
-
+import Footer from "./Components/main/Footer";
 export default function Home() {
   return(
     <main className="h-full w-full">
@@ -14,9 +12,8 @@ export default function Home() {
         <AboutMe  className="md:pt-32 pt-16 md:snap-start min-h-screen"/>
         <Skills className="pt-32 md:snap-start min-h-screen"/>
         <Projects className="pt-32 md:snap-start"/>
-        {/* <KnowMore className="pt-32 snap-start h-screen"/>
-        <ContactMe className="pt-32 snap-start h-screen"/> */}
-        <ComingSoon/>
+ 
+        <Footer/>
       </div>
     </main>
   )

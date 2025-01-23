@@ -1,6 +1,6 @@
 export const projectsInfo = [
   {
-    src: "/project_nyaymitra.png",
+    src: "/project_nyaymitra.jpeg",
     title: "NYAYMITRA",
     shortDesc: "Innovative legal assistant chatbot for quick and reliable legal information.",
     tags: ["AI", "Chatbot", "LegalTech", "Flask", "React.js"],
@@ -59,18 +59,4 @@ export const projectsInfo = [
     siteLink: "https://portfolio.example.com",
     index: 4
   },
-  {
-    src: "/project_ecommerce.png",
-    title: "E-Commerce Website",
-    shortDesc: "A modern and responsive e-commerce platform.",
-    tags: ["React.js", "Node.js", "eCommerce"],
-    desc: [
-      "Developed an e-commerce platform with integrated payment gateway and user authentication.",
-      "Implemented product listing and cart management functionalities.",
-      "Designed a clean and responsive user interface."
-    ],
-    githubLink: "https://github.com/dummy-link5",
-    siteLink: "https://ecommerce.example.com",
-    index: 5
-  }
 ];
