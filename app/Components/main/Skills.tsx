@@ -48,6 +48,7 @@ const Skills = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [positionedSkills, setPositionedSkills] = useState<PositionedSkill[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'language' | 'framework' | 'tool'>('all');
+  const [isMobile, setIsMobile] = useState(false);
 
   const allSkills = [
     ...languages.map(skill => ({ ...skill, category: 'language' as const })),
@@ -56,10 +57,22 @@ const Skills = () => {
   ];
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
     if (!containerRef.current) return;
 
     const container = containerRef.current.getBoundingClientRect();
     const occupiedPositions: PositionedSkill[] = [];
+    const skillW = isMobile ? 70 : 90;
+    const skillH = isMobile ? 70 : 90;
     
     const initialSkills = allSkills.map(skill => {
       let attempts = 0;
@@ -69,8 +82,10 @@ const Skills = () => {
       do {
         newPosition = {
           ...skill,
-          x: Math.random() * (container.width - skill.width),
-          y: Math.random() * (container.height - skill.height),
+          width: skillW,
+          height: skillH,
+          x: Math.random() * (container.width - skillW),
+          y: Math.random() * (container.height - skillH),
         };
         
         const collision = occupiedPositions.some(pos => checkCollision(newPosition, pos));
@@ -83,13 +98,15 @@ const Skills = () => {
     });
 
     setPositionedSkills(initialSkills);
-  }, []);
+  }, [isMobile]);
 
   const randomizePositions = () => {
     if (!containerRef.current) return;
 
     const container = containerRef.current.getBoundingClientRect();
     const occupiedPositions: PositionedSkill[] = [];
+    const skillW = isMobile ? 70 : 90;
+    const skillH = isMobile ? 70 : 90;
     
     const newSkills = positionedSkills.map(skill => {
       let attempts = 0;
@@ -99,8 +116,10 @@ const Skills = () => {
       do {
         newPosition = {
           ...skill,
-          x: Math.random() * (container.width - skill.width),
-          y: Math.random() * (container.height - skill.height),
+          width: skillW,
+          height: skillH,
+          x: Math.random() * (container.width - skillW),
+          y: Math.random() * (container.height - skillH),
         };
         
         const collision = occupiedPositions.some(pos => checkCollision(newPosition, pos));
@@ -150,7 +169,7 @@ const Skills = () => {
 
       <div
         ref={containerRef}
-        className="relative w-3/4 h-[60vh] bg-gray-900/50 rounded-lg overflow-hidden border border-gray-600/30 backdrop-blur-sm"
+        className="relative w-3/4 h-[60vh] bg-transparent rounded-lg overflow-hidden border border-gray-600/30 backdrop-blur-sm"
       >
         {positionedSkills.map((skill, index) => (
           <motion.div
@@ -162,8 +181,8 @@ const Skills = () => {
             }}
             className={`flex flex-col items-center justify-center rounded-lg 
               bg-gray-800/30 shadow-md p-2 border border-slate-400/30
-              w-[35px] h-[35px] md:w-[70px] md:h-[70px]
-              transition-opacity duration-300 hover:bg-gradient-to-tr hover:from-purple-500/20 hover:to-cyan-500/20`}
+              w-[70px] h-[70px] md:w-[90px] md:h-[90px]
+              transition-opacity duration-300 hover:bg-gradient-to-tr hover:from-purple-500/40 hover:to-cyan-500/40`}
             initial={{ opacity: 0 }}
             animate={{
               opacity: selectedCategory === 'all' || skill.category === selectedCategory ? 1 : 0,

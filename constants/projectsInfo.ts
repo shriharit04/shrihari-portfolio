@@ -11,8 +11,8 @@ export const projectsInfo = [
       "Organized workflow and delegated tasks within a close-knit team for effective collaboration.",
       "Managed version control using Git, resolving merge conflicts, and integrating team contributions."
     ],
-    githubLink: "https://github.com/dummy-link",
-    siteLink: "https://nyaymitra.example.com",
+    githubLink: "https://github.com/shriharit04/NyayMitra-SIH",
+    // siteLink: "https://nyaymitra.example.com",
     index: 1
   },
   {
@@ -27,7 +27,7 @@ export const projectsInfo = [
       "Deployed the app on cloud platforms to gather real-time user feedback.",
       "Set up a private domain and custom email for seamless access and automated communication."
     ],
-    githubLink: "https://github.com/dummy-link2",
+    githubLink: "https://github.com/shriharit04/KickOff-MERN",
     siteLink: "https://kickofftime.in",
     index: 2
   },
@@ -41,8 +41,8 @@ export const projectsInfo = [
       "Utilized Python's OS module for file operations like moving and renaming files.",
       "Used Regular Expressions to parse file names and categorize them based on predefined criteria."
     ],
-    githubLink: "https://github.com/dummy-link3",
-    siteLink: "https://github.com/dummy-link3",
+    githubLink: "https://github.com/shriharit04/NyayMitra-SIH",
+    // siteLink: "https://github.com/dummy-link3",
     index: 3
   },
   {
@@ -55,8 +55,8 @@ export const projectsInfo = [
       "Showcases personal projects, blogs, and contact information.",
       "Focused on responsive design and performance optimization."
     ],
-    githubLink: "https://github.com/dummy-link4",
-    siteLink: "https://portfolio.example.com",
+    // githubLink: "https://github.com/dummy-link4",
+    siteLink: "https://ntshrihari.vercel.app",
     index: 4
   },
 ];
