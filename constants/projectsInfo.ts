@@ -1,6 +1,6 @@
 export const projectsInfo = [
   {
-    src: "/project_nyaymitra.jpeg",
+    src: "/project_nyaymitra.png",
     title: "NYAYMITRA",
     shortDesc: "Innovative legal assistant chatbot for quick and reliable legal information.",
     tags: ["AI", "Chatbot", "LegalTech", "Flask", "React.js"],
@@ -16,7 +16,7 @@ export const projectsInfo = [
     index: 1
   },
   {
-    src: "/project_kickoff.png",
+    src: "/project_kickofftime.png",
     title: "KickOffTime",
     shortDesc: "A full-stack application for turf booking and management.",
     tags: ["React.js", "MERN Stack", "Web Development"],
