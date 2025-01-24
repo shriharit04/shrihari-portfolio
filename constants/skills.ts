@@ -45,7 +45,7 @@ export const languages = [
 
 export const frameWorks = [
   {
-    skill_name: "Tailwind Css",
+    skill_name: "Tailwind",
     Image: "/tailwind.png",
     width: 80,
     height: 80,
@@ -63,19 +63,19 @@ export const frameWorks = [
     height: 80,
   },
   {
-    skill_name: "Node js",
+    skill_name: "NodeJS",
     Image: "/node-js.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Express js",
+    skill_name: "ExprJS",
     Image: "/express.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Framer Motion",
+    skill_name: "Framer",
     Image: "/framer.png",
     width: 80,
     height: 80,
@@ -84,7 +84,7 @@ export const frameWorks = [
 
 export const database_skills = [
   {
-    skill_name: "Mongo db",
+    skill_name: "MongoDB",
     Image: "/mongodb.png",
     width: 80,
     height: 80,

@@ -37,12 +37,18 @@ const checkCollision = (rect1: PositionedSkill, rect2: PositionedSkill) => {
   );
 };
 
+const categoryButtons = [
+  { displayName: 'View All', category: 'all' },
+  { displayName: 'Languages', category: 'language' },
+  { displayName: 'Frameworks', category: 'framework' },
+  { displayName: 'Tools', category: 'tool' }
+];
+
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [positionedSkills, setPositionedSkills] = useState<PositionedSkill[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'language' | 'framework' | 'tool'>('all');
 
-  // Combine and categorize imported skills
   const allSkills = [
     ...languages.map(skill => ({ ...skill, category: 'language' as const })),
     ...frameWorks.map(skill => ({ ...skill, category: 'framework' as const })),
@@ -50,74 +56,67 @@ const Skills = () => {
   ];
 
   useEffect(() => {
-    if (containerRef.current) {
-      const container = containerRef.current.getBoundingClientRect();
-      const occupiedPositions: PositionedSkill[] = [];
-      
-      const initialSkills = allSkills.map(skill => {
-        let attempts = 0;
-        const maxAttempts = 500;
-        let newPosition: PositionedSkill;
+    if (!containerRef.current) return;
 
-        do {
-          newPosition = {
-            ...skill,
-            x: Math.random() * (container.width - skill.width),
-            y: Math.random() * (container.height - skill.height),
-          };
-          
-          const collision = occupiedPositions.some(pos => 
-            checkCollision(newPosition, pos)
-          );
-          
-          if (!collision || attempts >= maxAttempts) break;
-          attempts++;
-        } while (true);
+    const container = containerRef.current.getBoundingClientRect();
+    const occupiedPositions: PositionedSkill[] = [];
+    
+    const initialSkills = allSkills.map(skill => {
+      let attempts = 0;
+      const maxAttempts = 500;
+      let newPosition: PositionedSkill;
 
-        occupiedPositions.push(newPosition);
-        return newPosition;
-      });
+      do {
+        newPosition = {
+          ...skill,
+          x: Math.random() * (container.width - skill.width),
+          y: Math.random() * (container.height - skill.height),
+        };
+        
+        const collision = occupiedPositions.some(pos => checkCollision(newPosition, pos));
+        if (!collision || attempts >= maxAttempts) break;
+        attempts++;
+      } while (true);
 
-      setPositionedSkills(initialSkills);
-    }
+      occupiedPositions.push(newPosition);
+      return newPosition;
+    });
+
+    setPositionedSkills(initialSkills);
   }, []);
 
   const randomizePositions = () => {
-    if (containerRef.current) {
-      const container = containerRef.current.getBoundingClientRect();
-      const occupiedPositions: PositionedSkill[] = [];
-      
-      const newSkills = positionedSkills.map(skill => {
-        let attempts = 0;
-        const maxAttempts = 500;
-        let newPosition: PositionedSkill = { ...skill };
+    if (!containerRef.current) return;
 
-        do {
-          newPosition = {
-            ...skill,
-            x: Math.random() * (container.width - skill.width),
-            y: Math.random() * (container.height - skill.height),
-          };
-          
-          const collision = occupiedPositions.some(pos => 
-            checkCollision(newPosition, pos)
-          );
-          
-          if (!collision || attempts >= maxAttempts) break;
-          attempts++;
-        } while (true);
+    const container = containerRef.current.getBoundingClientRect();
+    const occupiedPositions: PositionedSkill[] = [];
+    
+    const newSkills = positionedSkills.map(skill => {
+      let attempts = 0;
+      const maxAttempts = 500;
+      let newPosition: PositionedSkill = { ...skill };
 
-        occupiedPositions.push(newPosition);
-        return newPosition;
-      });
+      do {
+        newPosition = {
+          ...skill,
+          x: Math.random() * (container.width - skill.width),
+          y: Math.random() * (container.height - skill.height),
+        };
+        
+        const collision = occupiedPositions.some(pos => checkCollision(newPosition, pos));
+        if (!collision || attempts >= maxAttempts) break;
+        attempts++;
+      } while (true);
 
-      setPositionedSkills(newSkills);
-    }
+      occupiedPositions.push(newPosition);
+      return newPosition;
+    });
+
+    setPositionedSkills(newSkills);
   };
 
   return (
     <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-transparent pt-20 pb-10">
-      {/* Header Section */}
       <div className="flex flex-col items-center gap-6 z-10 mb-8 px-4">
         <motion.h1
           variants={itemVariants}
@@ -126,48 +125,20 @@ const Skills = () => {
           My Skills
         </motion.h1>
         
-        {/* Filter Buttons */}
         <div className="flex flex-wrap gap-2 justify-center">
-          <button
-            onClick={() => setSelectedCategory('all')}
-            className={`px-4 py-2 rounded-md transition-all ${
-              selectedCategory === 'all' 
-                ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white' 
-                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50'
-            }`}
-          >
-            View All
-          </button>
-          <button
-            onClick={() => setSelectedCategory('language')}
-            className={`px-4 py-2 rounded-md transition-all ${
-              selectedCategory === 'language' 
-                ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white' 
-                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50'
-            }`}
-          >
-            Languages
-          </button>
-          <button
-            onClick={() => setSelectedCategory('framework')}
-            className={`px-4 py-2 rounded-md transition-all ${
-              selectedCategory === 'framework' 
-                ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white' 
-                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50'
-            }`}
-          >
-            Frameworks
-          </button>
-          <button
-            onClick={() => setSelectedCategory('tool')}
-            className={`px-4 py-2 rounded-md transition-all ${
-              selectedCategory === 'tool' 
-                ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white' 
-                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50'
-            }`}
-          >
-            Tools
-          </button>
+          {categoryButtons.map(({ displayName, category }) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category as any)}
+              className={`px-4 py-2 rounded-md transition-all ${
+                selectedCategory === category 
+                  ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white' 
+                  : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50'
+              }`}
+            >
+              {displayName}
+            </button>
+          ))}
           <button
             onClick={randomizePositions}
             className="px-4 py-2 bg-gradient-to-r from-purple-500 to-cyan-500 text-white rounded-md hover:opacity-90 transition-opacity"
@@ -177,7 +148,6 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Skills Container */}
       <div
         ref={containerRef}
         className="relative w-3/4 h-[60vh] bg-gray-900/50 rounded-lg overflow-hidden border border-gray-600/30 backdrop-blur-sm"
@@ -190,7 +160,7 @@ const Skills = () => {
               top: skill.y,
               left: skill.x,
             }}
-            className={`flex justify-center items-center rounded-lg 
+            className={`flex flex-col items-center justify-center rounded-lg 
               bg-gray-800/30 shadow-md p-2 border border-slate-400/30
               w-[35px] h-[35px] md:w-[70px] md:h-[70px]
               transition-opacity duration-300 hover:bg-gradient-to-tr hover:from-purple-500/20 hover:to-cyan-500/20`}
@@ -202,7 +172,7 @@ const Skills = () => {
             }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
           >
-            <div className="relative w-4/5 h-4/5">
+            <div className="relative w-4/5 h-4/5 mb-1">
               <Image
                 src={skill.Image}
                 alt={skill.skill_name}
@@ -210,6 +180,11 @@ const Skills = () => {
                 className="object-contain hover:filter hover:brightness-125 transition-all"
               />
             </div>
+            {selectedCategory !== 'all' && (
+              <p className="text-center text-xs text-gray-300 truncate w-full">
+                {skill.skill_name}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>
