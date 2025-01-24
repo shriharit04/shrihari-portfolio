@@ -63,7 +63,7 @@ const AboutMe = ({className}: {className?: string}) => {
           <div className="text-gray-300">
             {sections.about_me.split('\n').map((paragraph, index) => (
               paragraph.trim() && (
-                <p key={index} className="mb-4 text-justify">
+                <p key={index} className="mb-4 text-justify text-sm md:text-base">
                   {paragraph}
                 </p>
               )
@@ -72,7 +72,7 @@ const AboutMe = ({className}: {className?: string}) => {
         );
       case 'education':
         return (
-          <div className="space-y-4 overflow-y-auto max-h-[400px] pr-2">
+          <div className="space-y-4 overflow-y-auto md:max-h-[400px] pr-2">
             {sections.education.map((edu, index) => (
               <div key={index} className="bg-gray-700/30 p-4 rounded-lg">
                 <h3 className="font-semibold text-white">{edu.name}</h3>
@@ -179,9 +179,9 @@ const AboutMe = ({className}: {className?: string}) => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="md:bg-transparent bg-gray-800 rounded-lg p-6 h-[450px] overflow-hidden"
+                className="md:bg-transparent bg-gray-800 rounded-lg p-6 md:h-[450px] overflow-hidden"
               >
-                <div className="h-[400px] overflow-y-auto custom-scrollbar">
+                <div className=" md:h-[400px] overflow-y-auto custom-scrollbar">
                   {renderContent(activeSection)}
                 </div>
               </motion.div>

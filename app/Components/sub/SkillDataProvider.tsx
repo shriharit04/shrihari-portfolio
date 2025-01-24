@@ -50,8 +50,10 @@ const SkillDataProvider = ({ name, src, width, height, index ,isHovered}: Props)
             >
                 <Image
                     src={src}
-                    width={width    }
-                    height={height}
+                    width={width}
+                    height= {height}
+                    layout='responsive'
+
                     alt='skill_img'
                 />
             </motion.div>
