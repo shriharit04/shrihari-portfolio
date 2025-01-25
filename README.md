@@ -41,5 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 framer-motion
 
 1. Fix transparency in Socials.
-3. Add Project Images, github, link
+2. Add project Image
+3. Add AboutMe Image
+
 

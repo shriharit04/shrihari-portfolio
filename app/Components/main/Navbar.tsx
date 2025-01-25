@@ -19,7 +19,7 @@ const Navbar = () => {
 
         <div className="w-[500px] h-full flex flex-row items-center justify-between md:mr-20">
           <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
-            <a href="#hero" className="cursor-pointer">
+            <a href="#about_me" className="cursor-pointer">
               About me
             </a>
             <a href="#skills" className="cursor-pointer">
@@ -31,7 +31,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex-row gap-5 hidden md:flex">
+        {/* removed this element */}
+        <div className="flex-row gap-5 hidden "> 
           {Socials.map((social) => (
             <Image
               className="bg-transparent" // Tailwind CSS class for transparency

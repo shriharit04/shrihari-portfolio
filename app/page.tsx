@@ -11,8 +11,7 @@ export default function Home() {
       <div className="flex flex-col gap-20  overflow-y-visible scroll-smooth snap-y snap-proximity">
         <Hero className="md:snap-start min-h-screen"/>
         <AboutMe  className="md:pt-32 pt-16 md:snap-start min-h-screen"/>
-        {/* <Skills className="pt-32 md:snap-start min-h-screen"/> */}
-        <Skills/>
+        <Skills />
         <Projects className="pt-32 md:snap-start"/>
  
         <Footer/>

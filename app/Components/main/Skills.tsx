@@ -71,8 +71,8 @@ const Skills = () => {
 
     const container = containerRef.current.getBoundingClientRect();
     const occupiedPositions: PositionedSkill[] = [];
-    const skillW = isMobile ? 70 : 90;
-    const skillH = isMobile ? 70 : 90;
+    const skillW = isMobile ? 60 : 90;
+    const skillH = isMobile ? 60 : 90;
     
     const initialSkills = allSkills.map(skill => {
       let attempts = 0;
@@ -105,8 +105,8 @@ const Skills = () => {
 
     const container = containerRef.current.getBoundingClientRect();
     const occupiedPositions: PositionedSkill[] = [];
-    const skillW = isMobile ? 70 : 90;
-    const skillH = isMobile ? 70 : 90;
+    const skillW = isMobile ? 60 : 90;
+    const skillH = isMobile ? 60 : 90;
     
     const newSkills = positionedSkills.map(skill => {
       let attempts = 0;
@@ -135,7 +135,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-transparent pt-20 pb-10">
+    <div id="skills" className="md:pt-32 pt-16 md:snap-start min-h-screen relative  w-full flex flex-col items-center justify-center bg-transparent pb-10">
       <div className="flex flex-col items-center gap-6 z-10 mb-8 px-4">
         <motion.h1
           variants={itemVariants}
@@ -169,7 +169,7 @@ const Skills = () => {
 
       <div
         ref={containerRef}
-        className="relative w-3/4 h-[60vh] bg-transparent rounded-lg overflow-hidden border border-gray-600/30 backdrop-blur-sm"
+        className="relative w-3/4  h-[90vh] md:h-[60vh] bg-transparent rounded-lg overflow-hidden border border-gray-600/30 backdrop-blur-sm"
       >
         {positionedSkills.map((skill, index) => (
           <motion.div

@@ -115,6 +115,7 @@ const AboutMe = ({className}: {className?: string}) => {
 
   return (
     <motion.div 
+      id='about_me'
       ref={containerRef}
       variants={containerVariants}
       initial="hidden"
