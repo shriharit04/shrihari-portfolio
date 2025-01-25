@@ -15,17 +15,17 @@ const socialMediaLinks: SocialLink[] = [
   {
     name: 'LinkedIn',
     icon: FaLinkedin,
-    href: 'https://linkedin.com/in/yourusername',
+    href: 'https://www.linkedin.com/in/ntshrihari/',
   },
   {
     name: 'Instagram',
     icon: FaInstagram,
-    href: 'https://instagram.com/yourusername',
+    href: 'https://www.instagram.com/s_hari_rocks/',
   },
   {
     name: 'Gmail',
     icon: FaEnvelope,
-    href: 'mailto:youremail@gmail.com',
+    href: 'mailto:ntshrihari@gmail.com',
   },
 ];
 
@@ -33,17 +33,17 @@ const codingLinks: SocialLink[] = [
   {
     name: 'GitHub',
     icon: FaGithub,
-    href: 'https://github.com/yourusername',
+    href: 'https://github.com/shriharit04/',
   },
   {
     name: 'HackerRank',
     icon: FaHackerrank,
-    href: 'https://www.hackerrank.com/yourusername',
+    href: 'https://www.hackerrank.com/profile/shriharit2004',
   },
   {
     name: 'LeetCode',
     icon: SiLeetcode,
-    href: 'https://leetcode.com/yourusername',
+    href: 'https://leetcode.com/u/shriharit2004/',
   },
 ];
 
