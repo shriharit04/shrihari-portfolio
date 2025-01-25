@@ -172,7 +172,7 @@ const Skills = () => {
 
       <div
         ref={containerRef}
-        className="relative w-3/4  h-[90vh] md:h-[60vh] bg-transparent rounded-lg overflow-hidden border border-gray-600/30 backdrop-blur-sm"
+        className="relative md:w-3/4 w-[95vw] h-[75vh] md:h-[60vh] bg-transparent rounded-lg overflow-hidden border border-gray-600/30 backdrop-blur-sm"
       >
         {positionedSkills.map((skill, index) => (
           <motion.div

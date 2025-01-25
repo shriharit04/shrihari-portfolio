@@ -32,7 +32,7 @@ const Navbar = () => {
         </div>
 
         {/* removed this element */}
-        <div className="opacity-0">Shrihari Thiyag</div> 
+        <div className="opacity-0 hidden md:flex">Shrihari Thiyag</div> 
         <div className="flex-row gap-5 hidden "> 
           {Socials.map((social) => (
             <Image
