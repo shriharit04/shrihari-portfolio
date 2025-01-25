@@ -179,18 +179,18 @@ const Skills = () => {
             key={index}
             style={{
               position: "absolute",
-              top: skillH,
-              left: skillW,
+              top: skill.y,
+              left: skill.x,
             }}
             className={`flex flex-col items-center justify-center rounded-lg 
               bg-gray-800/30 shadow-md p-2 border border-slate-400/30
-              w-[70px] h-[70px] md:w-[90px] md:h-[90px]
+              w-[60px] h-[60px] md:w-[90px] md:h-[90px]
               transition-opacity duration-300 hover:bg-gradient-to-tr hover:from-purple-500/40 hover:to-cyan-500/40`}
             initial={{ opacity: 0 }}
             animate={{
               opacity: selectedCategory === 'all' || skill.category === selectedCategory ? 1 : 0,
-              top: skillH,
-              left: skillW,
+              top: skill.y,
+              left: skill.x,
             }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
           >
