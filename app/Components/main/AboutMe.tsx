@@ -180,7 +180,7 @@ const AboutMe = ({className}: {className?: string}) => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="md:bg-transparent bg-gray-800 rounded-lg p-6 md:h-[450px] overflow-hidden"
+                className="bg-transparent rounded-lg p-6 md:h-[450px] overflow-hidden"
               >
                 <div className=" md:h-[400px] overflow-y-auto custom-scrollbar">
                   {renderContent(activeSection)}

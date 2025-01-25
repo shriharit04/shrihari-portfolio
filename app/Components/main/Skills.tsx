@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 import { languages, database_skills, frameWorks } from "@/constants/skills";
 
 type PositionedSkill = {
@@ -49,6 +50,8 @@ const Skills = () => {
   const [positionedSkills, setPositionedSkills] = useState<PositionedSkill[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'language' | 'framework' | 'tool'>('all');
   const [isMobile, setIsMobile] = useState(false);
+  const skillW = isMobile ? 60 : 90;
+  const skillH = isMobile ? 60 : 90;
 
   const allSkills = [
     ...languages.map(skill => ({ ...skill, category: 'language' as const })),
@@ -176,8 +179,8 @@ const Skills = () => {
             key={index}
             style={{
               position: "absolute",
-              top: skill.y,
-              left: skill.x,
+              top: skillH,
+              left: skillW,
             }}
             className={`flex flex-col items-center justify-center rounded-lg 
               bg-gray-800/30 shadow-md p-2 border border-slate-400/30
@@ -186,8 +189,8 @@ const Skills = () => {
             initial={{ opacity: 0 }}
             animate={{
               opacity: selectedCategory === 'all' || skill.category === selectedCategory ? 1 : 0,
-              top: skill.y,
-              left: skill.x,
+              top: skillH,
+              left: skillW,
             }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
           >
